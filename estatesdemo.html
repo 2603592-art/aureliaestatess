@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELIA ESTATES | Ultra-Luxury Residences & Commercial Spaces by Aman Khan</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: {
+                            900: '#0F1115', // Deep luxurious charcoal/obsidian
+                            800: '#161920', // Warm card container background
+                            700: '#1E232D', // Subtle dark surface
+                            border: '#2A303C' // Dark border tone
+                        },
+                        gold: {
+                            400: '#E0C58A',
+                            500: '#C8A96A', // Champagne gold accent
+                            600: '#A8894A',
+                            light: '#FAF6ED'
+                        },
+                        alabaster: {
+                            50: '#FAF9F6',
+                            100: '#F8F7F4', // Warm off-white section background
+                            200: '#EFECE6',
+                            muted: '#7A766F'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0F1115;
+            color: #F8F7F4;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Luxury Champagne Glow */
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(200, 169, 106, 0.25);
+        }
+        .gold-border {
+            border: 1px solid rgba(200, 169, 106, 0.35);
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F1115;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A303C;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C8A96A;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-obsidian-900 flex flex-col min-h-screen">
+
+    <!-- DEMO PITCH STRIP FOR REAL ESTATE BROKERS -->
+    <div class="bg-gradient-to-r from-obsidian-900 via-gold-600 to-obsidian-900 text-gold-light py-2 px-4 text-center text-xs sm:text-sm font-medium tracking-wide border-b border-gold-500/30 relative z-50 flex flex-wrap items-center justify-center gap-2">
+        <span class="bg-gold-500 text-obsidian-900 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Broker Live Demo</span>
+        <span>High-Converting Web & WhatsApp Lead System by <strong>Aman Khan</strong> (+91 9584090118)</span>
+    </div>
+
+    <!-- STICKY GLASSMORPHIC NAVBAR -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-obsidian-900/90 border-b border-obsidian-border text-alabaster-100 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 border border-gold-500/60 rounded-xl flex items-center justify-center bg-obsidian-800/90 group-hover:border-gold-400 transition-all shadow-md">
+                    <i class="fa-solid fa-building text-gold-500 text-lg"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl sm:text-2xl tracking-wider text-alabaster-100 font-bold leading-none">AURELIA <span class="text-gold-500">ESTATES</span></span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-alabaster-muted font-semibold mt-0.5">Ultra-Luxury Realty</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-alabaster-200">
+                <a href="#properties" class="hover:text-gold-500 transition-colors">Residences</a>
+                <a href="#emi-calc" class="hover:text-gold-500 transition-colors">EMI Calculator</a>
+                <a href="#why-us" class="hover:text-gold-500 transition-colors">Why Aurelia</a>
+                <a href="#testimonials" class="hover:text-gold-500 transition-colors">Client Reviews</a>
+                <a href="#contact" class="hover:text-gold-500 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Action CTAs -->
+            <div class="flex items-center gap-3">
+                <button onclick="openLeadModal('General Inquiry')" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-obsidian-900 font-extrabold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-all gold-glow hover:scale-[1.02] active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-xs"></i>
+                    <span>Book Site Visit</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-alabaster-100 text-2xl focus:outline-none ml-1">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-obsidian-800 border-b border-obsidian-border px-4 pt-4 pb-6 space-y-3">
+            <a href="#properties" class="mobile-link block text-alabaster-200 hover:text-gold-500 py-1.5 font-medium">Residences & Villas</a>
+            <a href="#emi-calc" class="mobile-link block text-alabaster-200 hover:text-gold-500 py-1.5 font-medium">EMI Loan Calculator</a>
+            <a href="#why-us" class="mobile-link block text-alabaster-200 hover:text-gold-500 py-1.5 font-medium">Why Choose Us</a>
+            <a href="#testimonials" class="mobile-link block text-alabaster-200 hover:text-gold-500 py-1.5 font-medium">Client Reviews</a>
+            <a href="#contact" class="mobile-link block text-alabaster-200 hover:text-gold-500 py-1.5 font-medium">Contact Advisory</a>
+        </div>
+    </header>
+
+    <!-- IMMERSIVE LUXURY HERO SECTION -->
+    <section class="relative min-h-[88vh] flex items-center bg-obsidian-900 text-alabaster-100 overflow-hidden">
+        <!-- Background Image with Gradient Masking -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80" 
+                 alt="Luxury Architectural Estate" 
+                 class="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 opacity-40"
+                 onerror="this.src='https://placehold.co/1920x1080/0F1115/C8A96A?text=Aurelia+Luxury+Estates'">
+            <div class="absolute inset-0 bg-gradient-to-r from-obsidian-900 via-obsidian-900/90 to-obsidian-900/50"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-black/60"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full space-y-10">
+            <div class="max-w-3xl space-y-6">
+                
+                <!-- Trust Badge -->
+                <div class="inline-flex items-center gap-2 bg-obsidian-800/90 border border-gold-500/40 px-4 py-1.5 rounded-full backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-gold-500 animate-pulse"></span>
+                    <span class="text-xs font-semibold text-gold-400 uppercase tracking-widest">RERA Verified • Off-Market Indian Luxury Real Estate</span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.12] text-alabaster-100">
+                    Curating Iconic Spaces <br>
+                    <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-gold-500 to-amber-200">For Modern Indian Royalty.</span>
+                </h1>
+
+                <p class="text-alabaster-200 text-base sm:text-xl font-light leading-relaxed max-w-2xl">
+                    Exclusive luxury villas, sky penthouses, and prime commercial investments across South Mumbai, Gurgaon, Bengaluru, Hyderabad, and Tier-1 growth corridors.
+                </p>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-3 gap-4 pt-4 border-t border-obsidian-border/80 max-w-xl">
+                    <div>
+                        <div class="font-serif text-2xl sm:text-3xl font-bold text-gold-500">₹500+ Cr</div>
+                        <div class="text-[11px] text-alabaster-muted uppercase tracking-wider font-semibold">Portfolio Sold</div>
+                    </div>
+                    <div class="border-x border-obsidian-border/80 px-4">
+                        <div class="font-serif text-2xl sm:text-3xl font-bold text-alabaster-100">1,200+</div>
+                        <div class="text-[11px] text-alabaster-muted uppercase tracking-wider font-semibold">HNW Families</div>
+                    </div>
+                    <div class="pl-2">
+                        <div class="font-serif text-2xl sm:text-3xl font-bold text-gold-500">100%</div>
+                        <div class="text-[11px] text-alabaster-muted uppercase tracking-wider font-semibold">RERA Transparent</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- INTERACTIVE HERO QUICK SEARCH BAR -->
+            <div class="bg-obsidian-800/90 border border-gold-500/30 p-4 sm:p-6 rounded-3xl backdrop-blur-xl shadow-2xl max-w-5xl">
+                <form onsubmit="handleHeroSearch(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <!-- Property Category -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-alabaster-muted mb-1.5">Property Type</label>
+                        <select id="hero-type-select" class="w-full bg-obsidian-900 border border-obsidian-border text-alabaster-100 rounded-xl px-3.5 py-3 text-xs focus:outline-none focus:border-gold-500">
+                            <option value="All">All Categories</option>
+                            <option value="Luxury Villas">Luxury Villas</option>
+                            <option value="Penthouses">Penthouses</option>
+                            <option value="Apartments">Apartments</option>
+                            <option value="Commercial">Commercial Spaces</option>
+                        </select>
+                    </div>
+
+                    <!-- Budget Range -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-alabaster-muted mb-1.5">Budget Range</label>
+                        <select id="hero-budget-select" class="w-full bg-obsidian-900 border border-obsidian-border text-alabaster-100 rounded-xl px-3.5 py-3 text-xs focus:outline-none focus:border-gold-500">
+                            <option value="All">Any Price Range</option>
+                            <option value="Under 3 Cr">Under ₹3 Crore</option>
+                            <option value="3 Cr - 8 Cr">₹3 Crore – ₹8 Crore</option>
+                            <option value="Above 8 Cr">Above ₹8 Crore</option>
+                        </select>
+                    </div>
+
+                    <!-- Location Search -->
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-alabaster-muted mb-1.5">Location / Keyword</label>
+                        <input type="text" id="hero-location-input" placeholder="e.g. South Mumbai, Gurgaon, Vijay Nagar" class="w-full bg-obsidian-900 border border-obsidian-border text-alabaster-100 rounded-xl px-3.5 py-3 text-xs focus:outline-none focus:border-gold-500 placeholder-alabaster-muted">
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-obsidian-900 font-extrabold py-3 rounded-xl uppercase tracking-wider text-xs transition-all gold-glow flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                            <span>Search Properties</span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURED PROPERTIES SHOWCASE SECTION -->
+    <section id="properties" class="py-24 bg-obsidian-900 text-alabaster-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div class="space-y-3 max-w-2xl">
+                    <span class="text-gold-400 text-xs font-bold uppercase tracking-widest border border-gold-500/30 px-3.5 py-1.5 rounded-full bg-obsidian-800">Handpicked Portfolio</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-alabaster-100">FEATURED LUXURY RESIDENCES</h2>
+                    <p class="text-alabaster-muted text-sm sm:text-base">Explore RERA-approved luxury developments and off-market penthouses in prime Indian metro locations.</p>
+                </div>
+
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap items-center gap-2" id="property-tabs">
+                    <button onclick="filterProperties('All')" class="prop-tab active-tab bg-gold-500 text-obsidian-900 font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider shadow transition-all">All</button>
+                    <button onclick="filterProperties('Luxury Villas')" class="prop-tab bg-obsidian-800 text-alabaster-200 hover:text-gold-400 border border-obsidian-border font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all">Villas</button>
+                    <button onclick="filterProperties('Penthouses')" class="prop-tab bg-obsidian-800 text-alabaster-200 hover:text-gold-400 border border-obsidian-border font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all">Penthouses</button>
+                    <button onclick="filterProperties('Apartments')" class="prop-tab bg-obsidian-800 text-alabaster-200 hover:text-gold-400 border border-obsidian-border font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all">Apartments</button>
+                    <button onclick="filterProperties('Commercial')" class="prop-tab bg-obsidian-800 text-alabaster-200 hover:text-gold-400 border border-obsidian-border font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all">Commercial</button>
+                </div>
+            </div>
+
+            <!-- Property Cards Grid -->
+            <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically Populated by JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE HOME LOAN & EMI CALCULATOR -->
+    <section id="emi-calc" class="py-24 bg-obsidian-800 text-alabaster-100 border-y border-obsidian-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest border border-gold-500/30 px-3.5 py-1.5 rounded-full bg-obsidian-900">Financial Planning</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold">LUXURY HOME LOAN & EMI CALCULATOR</h2>
+                <p class="text-alabaster-muted text-sm sm:text-base">Calculate your estimated monthly outlay, interest component, and total loan payback instantly.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-obsidian-900 p-6 sm:p-10 rounded-3xl border border-gold-500/30 shadow-2xl">
+                
+                <!-- Left Sliders Section -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Slider 1: Loan Amount -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <label class="font-bold uppercase tracking-wider text-xs text-alabaster-muted">Property Loan Amount</label>
+                            <span id="display-amount" class="font-serif font-bold text-xl text-gold-500">₹1,50,00,000</span>
+                        </div>
+                        <input type="range" id="input-amount" min="2000000" max="100000000" step="500000" value="15000000" oninput="calculateEMI()" class="w-full h-2 bg-obsidian-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                        <div class="flex justify-between text-[11px] text-alabaster-muted font-medium">
+                            <span>₹20 Lakhs</span>
+                            <span>₹5 Crore</span>
+                            <span>₹10 Crore</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2: Interest Rate -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <label class="font-bold uppercase tracking-wider text-xs text-alabaster-muted">Annual Interest Rate (%)</label>
+                            <span id="display-rate" class="font-serif font-bold text-xl text-gold-500">8.5%</span>
+                        </div>
+                        <input type="range" id="input-rate" min="7.0" max="13.5" step="0.1" value="8.5" oninput="calculateEMI()" class="w-full h-2 bg-obsidian-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                        <div class="flex justify-between text-[11px] text-alabaster-muted font-medium">
+                            <span>7.0%</span>
+                            <span>10.0%</span>
+                            <span>13.5%</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 3: Loan Tenure -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <label class="font-bold uppercase tracking-wider text-xs text-alabaster-muted">Loan Tenure (Years)</label>
+                            <span id="display-tenure" class="font-serif font-bold text-xl text-gold-500">20 Years</span>
+                        </div>
+                        <input type="range" id="input-tenure" min="5" max="30" step="1" value="20" oninput="calculateEMI()" class="w-full h-2 bg-obsidian-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                        <div class="flex justify-between text-[11px] text-alabaster-muted font-medium">
+                            <span>5 Years</span>
+                            <span>15 Years</span>
+                            <span>30 Years</span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-obsidian-800 rounded-2xl border border-obsidian-border text-xs text-alabaster-muted flex items-start gap-3">
+                        <i class="fa-solid fa-circle-info text-gold-500 text-base mt-0.5"></i>
+                        <span>Note: Rates are indicative. Aurelia Estates partners with leading banks (HDFC, ICICI, SBI Luxury Desk) to offer preferred interest rates for our clients.</span>
+                    </div>
+
+                </div>
+
+                <!-- Right Calculation Summary Box -->
+                <div class="lg:col-span-5 bg-obsidian-800 p-8 rounded-3xl border border-obsidian-border space-y-8 text-center flex flex-col justify-between h-full">
+                    
+                    <div class="space-y-2">
+                        <span class="text-xs uppercase tracking-widest font-bold text-alabaster-muted">Monthly Installment</span>
+                        <div id="emi-monthly-result" class="font-serif text-4xl sm:text-5xl font-bold text-gold-500">₹1,30,163</div>
+                        <span class="text-[11px] text-alabaster-muted">Monthly EMI for specified tenure</span>
+                    </div>
+
+                    <!-- Progress Bar / Visual Ratio -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold text-alabaster-200">
+                            <span>Principal (<span id="principal-percent">48%</span>)</span>
+                            <span>Interest (<span id="interest-percent">52%</span>)</span>
+                        </div>
+                        <div class="w-full h-3 bg-obsidian-700 rounded-full overflow-hidden flex">
+                            <div id="bar-principal" class="bg-gold-500 h-full transition-all duration-300" style="width: 48%;"></div>
+                            <div id="bar-interest" class="bg-amber-700 h-full transition-all duration-300" style="width: 52%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Breakdown Stats -->
+                    <div class="grid grid-cols-2 gap-4 text-left border-t border-obsidian-border pt-6">
+                        <div class="space-y-1">
+                            <span class="text-[11px] uppercase tracking-wider text-alabaster-muted font-bold">Total Interest</span>
+                            <div id="display-total-interest" class="font-serif font-bold text-lg text-alabaster-100">₹1,62,39,120</div>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-[11px] uppercase tracking-wider text-alabaster-muted font-bold">Total Amount</span>
+                            <div id="display-total-payable" class="font-serif font-bold text-lg text-alabaster-100">₹3,12,39,120</div>
+                        </div>
+                    </div>
+
+                    <button onclick="openLeadModal('Loan Advisory Consultation')" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 text-obsidian-900 font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs transition-all gold-glow">
+                        Apply For Pre-Approved Luxury Loan
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE AURELIA (TRUST & RERA AUTHORITY) -->
+    <section id="why-us" class="py-24 bg-obsidian-900 text-alabaster-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest border border-gold-500/30 px-3.5 py-1.5 rounded-full bg-obsidian-800">Uncompromising Standards</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold">THE AURELIA PRIVILEGE</h2>
+                <p class="text-alabaster-muted text-sm sm:text-base">We operate as your private real estate advisors, ensuring 100% legal clarity, zero undisclosed costs, and priority access to off-market inventory.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="bg-obsidian-800 border border-obsidian-border p-8 rounded-3xl space-y-4 hover:border-gold-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-alabaster-100">100% RERA Verified</h3>
+                    <p class="text-xs text-alabaster-muted leading-relaxed">
+                        Every single property in our portfolio is thoroughly vetted for RERA compliance, title deeds, and clear municipal approvals.
+                    </p>
+                </div>
+
+                <div class="bg-obsidian-800 border border-obsidian-border p-8 rounded-3xl space-y-4 hover:border-gold-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-handshake font-bold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-alabaster-100">Zero Brokerage Penalty</h3>
+                    <p class="text-xs text-alabaster-muted leading-relaxed">
+                        Direct developer prices with absolute zero hidden brokerage charges on fresh launches and direct luxury partner projects.
+                    </p>
+                </div>
+
+                <div class="bg-obsidian-800 border border-obsidian-border p-8 rounded-3xl space-y-4 hover:border-gold-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-alabaster-100">End-to-End Legal Assistance</h3>
+                    <p class="text-xs text-alabaster-muted leading-relaxed">
+                        Our in-house legal counsel handles title search, registry, stamp duty execution, and banking documentation end-to-end.
+                    </p>
+                </div>
+
+                <div class="bg-obsidian-800 border border-obsidian-border p-8 rounded-3xl space-y-4 hover:border-gold-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-alabaster-100">Exclusive Off-Market Access</h3>
+                    <p class="text-xs text-alabaster-muted leading-relaxed">
+                        Gain private viewing invitations to ultra-luxury penthouses and celebrity estates before they reach public portals.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CLIENT TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-24 bg-obsidian-800 text-alabaster-100 border-t border-obsidian-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest border border-gold-500/30 px-3.5 py-1.5 rounded-full bg-obsidian-900">Client Stories</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold">TRUSTED BY INDUSTRY LEADERS</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-obsidian-900 border border-obsidian-border p-8 rounded-3xl space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex text-gold-500 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-alabaster-200 text-sm italic font-light leading-relaxed">
+                            "Aman Khan and Aurelia Estates secured our 6,500 sq.ft duplex in South Mumbai off-market. Their discretion, legal precision, and banking team saved us weeks of hassle."
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-obsidian-border flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-500 font-serif font-bold flex items-center justify-center text-sm">
+                            VS
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-alabaster-100">Vikramaditya Singhania</div>
+                            <div class="text-[11px] text-alabaster-muted">Industrialist • Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-obsidian-900 border border-obsidian-border p-8 rounded-3xl space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex text-gold-500 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-alabaster-200 text-sm italic font-light leading-relaxed">
+                            "Finding a RERA-compliant luxury villa on Golf Course Road with complete clear titles seemed daunting. Aman made it effortless within 10 days!"
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-obsidian-border flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-500 font-serif font-bold flex items-center justify-center text-sm">
+                            RP
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-alabaster-100">Dr. Radhika Patel</div>
+                            <div class="text-[11px] text-alabaster-muted">Tech Founder • Gurgaon</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-obsidian-900 border border-obsidian-border p-8 rounded-3xl space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex text-gold-500 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-alabaster-200 text-sm italic font-light leading-relaxed">
+                            "Their commercial advisory helped our firm acquire 3,000 sq.ft prime retail space in Vijay Nagar Indore. High yields and smooth paperwork."
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-obsidian-border flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-500 font-serif font-bold flex items-center justify-center text-sm">
+                            AK
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-alabaster-100">Anand Khandelwal</div>
+                            <div class="text-[11px] text-alabaster-muted">Managing Director • Indore</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROPERTY DETAIL POPUP MODAL -->
+    <div id="property-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden transition-opacity flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-obsidian-900 border border-gold-500/40 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative text-alabaster-100">
+            
+            <!-- Close Button -->
+            <button onclick="closePropertyModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-obsidian-800 border border-obsidian-border text-alabaster-muted hover:text-white flex items-center justify-center text-lg transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Dynamic Modal Content -->
+            <div id="modal-content" class="p-6 sm:p-10 space-y-8">
+                <!-- Injected dynamically via JS -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- LEAD CAPTURE & SITE VISIT MODAL -->
+    <div id="lead-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden transition-opacity flex items-center justify-center p-4">
+        <div class="bg-obsidian-900 border border-gold-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative text-alabaster-100 space-y-6">
+            
+            <!-- Close Button -->
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-alabaster-muted hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div>
+                <span class="text-gold-400 text-[10px] font-extrabold uppercase tracking-widest border border-gold-500/30 px-3 py-1 rounded-full bg-obsidian-800">Private Advisory</span>
+                <h3 id="lead-modal-title" class="font-serif text-2xl sm:text-3xl font-bold text-alabaster-100 mt-2">Book a Private Site Visit</h3>
+                <p class="text-xs text-alabaster-muted mt-1">Advisor Aman Khan will reach out within 30 minutes.</p>
+            </div>
+
+            <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-bold text-alabaster-muted mb-1">Full Name</label>
+                    <input type="text" id="lead-name" required placeholder="e.g. Rajesh Malhotra" class="w-full bg-obsidian-800 border border-obsidian-border rounded-xl px-4 py-3 text-sm text-alabaster-100 placeholder-alabaster-muted focus:outline-none focus:border-gold-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase font-bold text-alabaster-muted mb-1">Mobile Number (WhatsApp)</label>
+                    <input type="tel" id="lead-phone" required placeholder="e.g. +91 98765 43210" class="w-full bg-obsidian-800 border border-obsidian-border rounded-xl px-4 py-3 text-sm text-alabaster-100 placeholder-alabaster-muted focus:outline-none focus:border-gold-500">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-alabaster-muted mb-1">Interested In</label>
+                        <select id="lead-type" class="w-full bg-obsidian-800 border border-obsidian-border rounded-xl px-3 py-3 text-xs text-alabaster-100 focus:outline-none focus:border-gold-500">
+                            <option value="Luxury Villa">Luxury Villa</option>
+                            <option value="Sky Penthouse">Sky Penthouse</option>
+                            <option value="3/4 BHK Apartment">3/4 BHK Apartment</option>
+                            <option value="Commercial Space">Commercial Investment</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-alabaster-muted mb-1">Preferred Date</label>
+                        <input type="date" id="lead-date" required class="w-full bg-obsidian-800 border border-obsidian-border rounded-xl px-3 py-3 text-xs text-alabaster-100 focus:outline-none focus:border-gold-500">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 text-obsidian-900 font-extrabold py-4 rounded-xl uppercase tracking-wider text-xs transition-all gold-glow flex items-center justify-center gap-2 mt-2">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>Confirm Visit & Notify Aman Khan via WhatsApp</span>
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/919584090118?text=Hi%20Aman%20Khan!%20I%20am%20interested%20in%20exploring%20luxury%20properties%20with%20Aurelia%20Estates." target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition-transform hover:scale-110 active:scale-95 border-2 border-white/20">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-notification" class="fixed bottom-6 left-6 z-50 hidden bg-obsidian-800 border border-gold-500 text-alabaster-100 px-5 py-3 rounded-2xl shadow-2xl text-xs font-semibold flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-gold-500 text-base"></i>
+        <span id="toast-message">Site visit request logged successfully!</span>
+    </div>
+
+    <!-- FOOTER & AGENCY PITCH CARD -->
+    <footer id="contact" class="bg-obsidian-900 border-t border-obsidian-border text-alabaster-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-obsidian-border">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 border border-gold-500 rounded-lg flex items-center justify-center bg-obsidian-800">
+                            <i class="fa-solid fa-building text-gold-500 text-sm"></i>
+                        </div>
+                        <span class="font-serif text-xl tracking-wider text-alabaster-100 font-bold">AURELIA <span class="text-gold-500">ESTATES</span></span>
+                    </div>
+                    <p class="text-xs text-alabaster-muted leading-relaxed">
+                        India's premier luxury real estate advisory specializing in ultra-exclusive residences and institutional commercial assets.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg text-gold-500">QUICK LINKS</h4>
+                    <ul class="text-xs text-alabaster-muted space-y-2">
+                        <li><a href="#properties" class="hover:text-gold-400">Featured Luxury Properties</a></li>
+                        <li><a href="#emi-calc" class="hover:text-gold-400">Home Loan EMI Calculator</a></li>
+                        <li><a href="#why-us" class="hover:text-gold-400">RERA Legal Compliance</a></li>
+                        <li><a href="#testimonials" class="hover:text-gold-400">Investor Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Offices -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg text-gold-500">PRIME ADVISORY DESK</h4>
+                    <ul class="text-xs text-alabaster-muted space-y-2.5">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-user text-gold-500 mt-0.5"></i>
+                            <span class="font-semibold text-alabaster-100">Aman Khan (Senior Advisor)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-gold-500 mt-0.5"></i>
+                            <span>Level 14, Capital Tower, BKC, Mumbai & Golf Course Road, Gurgaon</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-gold-500"></i>
+                            <span>+91 9584090118</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-gold-500"></i>
+                            <span>khanaman60673@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Agency Pitch Customization Card for Brokers -->
+                <div class="bg-obsidian-800 p-5 rounded-2xl border border-gold-500/30 space-y-3">
+                    <div class="text-xs font-bold uppercase tracking-wider text-gold-500">Real Estate Tech Solution</div>
+                    <p class="text-[11px] text-alabaster-200">Want a website like this for your Real Estate agency? Contact <strong>Aman Khan</strong> to build high-converting lead generation systems.</p>
+                    <a href="https://wa.me/919584090118?text=Hi%20Aman!%20I%20saw%20your%20Aurelia%20Estates%20demo%20website%20and%20want%20one%20customized%20for%20my%20real%20estate%20agency." target="_blank" class="block w-full text-center bg-gold-500 text-obsidian-900 font-bold py-2.5 rounded-xl text-xs uppercase shadow-md hover:bg-gold-400 transition-all">
+                        Contact Aman Khan on WhatsApp
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal & Socials -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-alabaster-muted gap-4">
+                <p>&copy; 2026 AURELIA ESTATES LUXURY REALTY INC. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-4 text-alabaster-200">
+                    <a href="#" class="hover:text-gold-500"><i class="fa-brands fa-instagram text-base"></i></a>
+                    <a href="#" class="hover:text-gold-500"><i class="fa-brands fa-linkedin text-base"></i></a>
+                    <a href="https://wa.me/919584090118" target="_blank" class="hover:text-gold-500"><i class="fa-brands fa-whatsapp text-base"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const AMAN_WHATSAPP = "919584090118";
+
+        // LUXURY REAL ESTATE LISTINGS DATABASE
+        const properties = [
+            {
+                id: 1,
+                title: "The Sovereign Sky Villa",
+                category: "Penthouses",
+                priceNum: 185000000,
+                priceStr: "₹18.5 Crore",
+                location: "Worli, South Mumbai",
+                bhk: "5 BHK Duplex",
+                area: "6,500 sq.ft.",
+                status: "Ready to Move",
+                rera: "P51900012345",
+                img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
+                description: "Panoramic Arabian Sea facing duplex penthouses with private infinity plunge pool, double-height ceiling living hall, and Italian marble finishes throughout.",
+                highlights: ["Private Sky Deck & Pool", "4 Dedicated Car Parkings", "Concierge Service 24/7", "Private Elevator Access"]
+            },
+            {
+                id: 2,
+                title: "Aurelia Grand Manor",
+                category: "Luxury Villas",
+                priceNum: 82000000,
+                priceStr: "₹8.2 Crore",
+                location: "Golf Course Road, Gurgaon",
+                bhk: "4 BHK Villa",
+                area: "4,200 sq.ft.",
+                status: "New Launch",
+                rera: "GGM/432/2026",
+                img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+                description: "Independent luxury estate gated villa surrounded by landscaped greens, featuring private home theater, solar automation, and heated Jacuzzi.",
+                highlights: ["Gated Ultra Villa Community", "Private Home Automation", "Landscaped Zen Garden", "Clubhouse Access"]
+            },
+            {
+                id: 3,
+                title: "The Luminary Sky Suites",
+                category: "Apartments",
+                priceNum: 37500000,
+                priceStr: "₹3.75 Crore",
+                location: "Indiranagar, Bengaluru",
+                bhk: "3 BHK Luxury Suite",
+                area: "2,850 sq.ft.",
+                status: "Under Construction",
+                rera: "PRM/KA/RERA/1251",
+                img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
+                description: "Contemporary high-rise luxury residence with wraparound timber balconies, integrated smart home HVAC systems, and rooftop lounge bar.",
+                highlights: ["Prime Tech Corridor", "EV Charging Bays", "Rooftop Temperature Pool", "Gym & Spa Hub"]
+            },
+            {
+                id: 4,
+                title: "Palatial Heights Estate",
+                category: "Penthouses",
+                priceNum: 120000000,
+                priceStr: "₹12.0 Crore",
+                location: "Jubilee Hills, Hyderabad",
+                bhk: "5 BHK Mansion Penthouse",
+                area: "7,800 sq.ft.",
+                status: "Ready to Move",
+                rera: "P0250000987",
+                img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+                description: "Extravagant penthouse perched on top of Jubilee Hills featuring private helipad clearance, bespoke wine cellar, and Italian modular kitchen.",
+                highlights: ["360 City Ridge View", "Private Wine Tasting Lounge", "Staff Quarters (3)", "Biometric Security"]
+            },
+            {
+                id: 5,
+                title: "Aurelia One Commercial Tower",
+                category: "Commercial",
+                priceNum: 18500000,
+                priceStr: "₹1.85 Crore",
+                location: "Vijay Nagar, Indore",
+                bhk: "Grade-A Retail / Office",
+                area: "1,450 sq.ft.",
+                status: "New Launch",
+                rera: "P-IND-24-998",
+                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+                description: "High-yield commercial property on AB Road / Vijay Nagar square with double height retail storefronts, 100% power backup, and high footfall location.",
+                highlights: ["9% Expected Rental Yield", "High Footfall Commercial Hub", "Multi-tier Basement Parking", "LEED Certified Building"]
+            },
+            {
+                id: 6,
+                title: "The Eco-Sphere Private Villa",
+                category: "Luxury Villas",
+                priceNum: 29000000,
+                priceStr: "₹2.90 Crore",
+                location: "Baner Annexe, Pune",
+                bhk: "4 BHK Courtyard Villa",
+                area: "3,100 sq.ft.",
+                status: "Ready to Move",
+                rera: "P5210008821",
+                img: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
+                description: "Modern minimalist tropical villa featuring indoor water bodies, central courtyard architecture, and zero-carbon energy footprint.",
+                highlights: ["Private Plunge Pool", "Central Skylight Courtyard", "Solar Powered Smart Home", "Ready Title Deeds"]
+            }
+        ];
+
+        // RENDER PROPERTY LISTINGS GRID
+        function renderProperties(list) {
+            const grid = document.getElementById('property-grid');
+            grid.innerHTML = '';
+
+            if (list.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 bg-obsidian-800 rounded-3xl border border-obsidian-border space-y-3">
+                        <i class="fa-solid fa-house-circle-xmark text-4xl text-alabaster-muted"></i>
+                        <h3 class="font-serif text-xl font-bold text-alabaster-100">No Matching Residences Found</h3>
+                        <p class="text-xs text-alabaster-muted">Try adjusting your budget or category filter criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.forEach(prop => {
+                const card = document.createElement('div');
+                card.className = "bg-obsidian-800 border border-obsidian-border hover:border-gold-500/60 rounded-3xl overflow-hidden shadow-xl transition-all duration-300 flex flex-col justify-between group";
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Image & Status Badges -->
+                        <div class="relative h-64 overflow-hidden bg-obsidian-900">
+                            <img src="${prop.img}" alt="${prop.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/0F1115/C8A96A?text=Aurelia+Property'">
+                            
+                            <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+                                <span class="bg-gold-500 text-obsidian-900 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                    ${prop.category}
+                                </span>
+                                <span class="bg-obsidian-900/80 text-gold-400 border border-gold-500/40 backdrop-blur-md text-[10px] font-bold px-2.5 py-1 rounded-full">
+                                    <i class="fa-solid fa-certificate text-[9px] mr-1"></i>${prop.status}
+                                </span>
+                            </div>
+
+                            <div class="absolute bottom-4 right-4 bg-obsidian-900/90 text-gold-500 font-serif font-bold text-xl px-4 py-1.5 rounded-xl border border-gold-500/40 backdrop-blur-md">
+                                ${prop.priceStr}
+                            </div>
+                        </div>
+
+                        <!-- Info Content -->
+                        <div class="p-6 space-y-3">
+                            <div class="text-xs font-semibold text-gold-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>${prop.location}</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-alabaster-100 group-hover:text-gold-400 transition-colors">${prop.title}</h3>
+                            <p class="text-xs text-alabaster-muted leading-relaxed line-clamp-2">${prop.description}</p>
+                            
+                            <!-- Specs Bar -->
+                            <div class="grid grid-cols-2 gap-2 pt-3 border-t border-obsidian-border text-xs text-alabaster-200 font-medium">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-bed text-gold-500"></i>
+                                    <span>${prop.bhk}</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-ruler-combined text-gold-500"></i>
+                                    <span>${prop.area}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="p-6 pt-0 grid grid-cols-2 gap-3">
+                        <button onclick="openPropertyModal(${prop.id})" class="w-full bg-obsidian-900 hover:bg-gold-500 hover:text-obsidian-900 text-alabaster-100 border border-gold-500/40 font-bold py-3 rounded-xl uppercase tracking-wider text-[11px] transition-all text-center flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-eye"></i> View Details
+                        </button>
+                        <button onclick="inquireOnWhatsApp(${prop.id})" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl uppercase tracking-wider text-[11px] transition-all text-center flex items-center justify-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // CATEGORY TAB FILTER
+        function filterProperties(category) {
+            const tabs = document.querySelectorAll('.prop-tab');
+            tabs.forEach(tab => {
+                if (tab.innerText.toLowerCase() === category.toLowerCase() || (category === 'All' && tab.innerText === 'All')) {
+                    tab.className = "prop-tab active-tab bg-gold-500 text-obsidian-900 font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider shadow transition-all";
+                } else {
+                    tab.className = "prop-tab bg-obsidian-800 text-alabaster-200 hover:text-gold-400 border border-obsidian-border font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all";
+                }
+            });
+
+            if (category === 'All') {
+                renderProperties(properties);
+            } else {
+                const filtered = properties.filter(p => p.category.toLowerCase() === category.toLowerCase() || (category === 'Luxury Villas' && p.category === 'Luxury Villas'));
+                renderProperties(filtered);
+            }
+        }
+
+        // HERO SEARCH SUBMIT HANDLER
+        function handleHeroSearch(e) {
+            e.preventDefault();
+            const type = document.getElementById('hero-type-select').value;
+            const budget = document.getElementById('hero-budget-select').value;
+            const locationQuery = document.getElementById('hero-location-input').value.toLowerCase();
+
+            let filtered = properties;
+
+            // Type filter
+            if (type !== 'All') {
+                filtered = filtered.filter(p => p.category.toLowerCase().includes(type.toLowerCase().split(' ')[0]));
+            }
+
+            // Budget filter
+            if (budget === 'Under 3 Cr') {
+                filtered = filtered.filter(p => p.priceNum < 30000000);
+            } else if (budget === '3 Cr - 8 Cr') {
+                filtered = filtered.filter(p => p.priceNum >= 30000000 && p.priceNum <= 80000000);
+            } else if (budget === 'Above 8 Cr') {
+                filtered = filtered.filter(p => p.priceNum > 80000000);
+            }
+
+            // Location query
+            if (locationQuery) {
+                filtered = filtered.filter(p => p.location.toLowerCase().includes(locationQuery) || p.title.toLowerCase().includes(locationQuery));
+            }
+
+            renderProperties(filtered);
+
+            // Scroll down to properties section
+            document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // PROPERTY DETAIL MODAL OPEN/CLOSE
+        function openPropertyModal(id) {
+            const prop = properties.find(p => p.id === id);
+            if (!prop) return;
+
+            const modal = document.getElementById('property-modal');
+            const content = document.getElementById('modal-content');
+
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Image -->
+                    <div class="space-y-4">
+                        <div class="h-72 rounded-2xl overflow-hidden bg-obsidian-800">
+                            <img src="${prop.img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/0F1115/C8A96A?text=Property+Photo'">
+                        </div>
+                        <div class="bg-obsidian-800 p-4 rounded-2xl border border-obsidian-border space-y-2">
+                            <div class="text-xs uppercase font-bold text-gold-400">RERA Registration</div>
+                            <div class="text-sm font-semibold text-alabaster-100">${prop.rera}</div>
+                            <p class="text-[11px] text-alabaster-muted">Verified title deeds & municipal building sanction on record.</p>
+                        </div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-gold-400 text-xs font-bold uppercase tracking-wider">${prop.category} • ${prop.status}</span>
+                            <h2 class="font-serif text-3xl font-bold text-alabaster-100 mt-1">${prop.title}</h2>
+                            <div class="text-sm text-alabaster-muted mt-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-location-dot text-gold-500"></i> ${prop.location}
+                            </div>
+                        </div>
+
+                        <div class="font-serif text-3xl font-bold text-gold-500">
+                            ${prop.priceStr}
+                        </div>
+
+                        <p class="text-xs text-alabaster-200 leading-relaxed font-light">
+                            ${prop.description}
+                        </p>
+
+                        <!-- Key Specs -->
+                        <div class="grid grid-cols-2 gap-4 bg-obsidian-800 p-4 rounded-2xl border border-obsidian-border text-xs">
+                            <div>
+                                <span class="text-alabaster-muted block">Configuration</span>
+                                <span class="font-bold text-alabaster-100 text-sm">${prop.bhk}</span>
+                            </div>
+                            <div>
+                                <span class="text-alabaster-muted block">Super Built-up Area</span>
+                                <span class="font-bold text-alabaster-100 text-sm">${prop.area}</span>
+                            </div>
+                        </div>
+
+                        <!-- Highlights List -->
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gold-400">Residence Highlights</h4>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-alabaster-200">
+                                ${prop.highlights.map(h => `<div class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> ${h}</div>`).join('')}
+                            </div>
+                        </div>
+
+                        <!-- CTAs -->
+                        <div class="grid grid-cols-2 gap-3 pt-2">
+                            <button onclick="closePropertyModal(); openLeadModal('${prop.title.replace(/'/g, "\\'")} Site Visit')" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 text-obsidian-900 font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs transition-all gold-glow text-center">
+                                Book Private Tour
+                            </button>
+                            <button onclick="inquireOnWhatsApp(${prop.id})" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-xs transition-all text-center flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Inquiry
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closePropertyModal() {
+            document.getElementById('property-modal').classList.add('hidden');
+        }
+
+        // WHATSAPP INQUIRY REDIRECT
+        function inquireOnWhatsApp(id) {
+            const prop = properties.find(p => p.id === id);
+            if (!prop) return;
+
+            const text = `Hi Aman Khan! I am interested in inquiring about *${prop.title}* (${prop.priceStr}) located in *${prop.location}*. Please send floor plans and arrange a call with Aurelia Estates.`;
+            window.open(`https://wa.me/${AMAN_WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // HOME LOAN EMI CALCULATOR LOGIC
+        function calculateEMI() {
+            const P = parseFloat(document.getElementById('input-amount').value);
+            const annualRate = parseFloat(document.getElementById('input-rate').value);
+            const tenureYears = parseInt(document.getElementById('input-tenure').value);
+
+            // Update UI Slider Text Displays
+            document.getElementById('display-amount').innerText = formatCurrency(P);
+            document.getElementById('display-rate').innerText = `${annualRate.toFixed(1)}%`;
+            document.getElementById('display-tenure').innerText = `${tenureYears} Years`;
+
+            const r = (annualRate / 12) / 100; // Monthly interest rate
+            const n = tenureYears * 12; // Tenure in months
+
+            // EMI Formula: P * r * (1+r)^n / ((1+r)^n - 1)
+            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            const totalPayable = emi * n;
+            const totalInterest = totalPayable - P;
+
+            // Render EMI Results
+            document.getElementById('emi-monthly-result').innerText = formatCurrency(Math.round(emi));
+            document.getElementById('display-total-interest').innerText = formatCurrency(Math.round(totalInterest));
+            document.getElementById('display-total-payable').innerText = formatCurrency(Math.round(totalPayable));
+
+            // Calculate ratios for visual breakdown bar
+            const principalPct = Math.round((P / totalPayable) * 100);
+            const interestPct = 100 - principalPct;
+
+            document.getElementById('principal-percent').innerText = `${principalPct}%`;
+            document.getElementById('interest-percent').innerText = `${interestPct}%`;
+            document.getElementById('bar-principal').style.width = `${principalPct}%`;
+            document.getElementById('bar-interest').style.width = `${interestPct}%`;
+        }
+
+        // INDIAN CURRENCY FORMATTER (Lakhs & Crores)
+        function formatCurrency(num) {
+            if (num >= 10000000) {
+                return `₹${(num / 10000000).toFixed(2)} Crore`;
+            } else if (num >= 100000) {
+                return `₹${(num / 100000).toFixed(2)} Lakhs`;
+            } else {
+                return `₹${num.toLocaleString('en-IN')}`;
+            }
+        }
+
+        // LEAD CAPTURE MODAL LOGIC
+        function openLeadModal(purpose) {
+            document.getElementById('lead-modal-title').innerText = purpose || "Book a Private Site Visit";
+            document.getElementById('lead-modal').classList.remove('hidden');
+        }
+
+        function closeLeadModal() {
+            document.getElementById('lead-modal').classList.add('hidden');
+        }
+
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('lead-name').value;
+            const phone = document.getElementById('lead-phone').value;
+            const type = document.getElementById('lead-type').value;
+            const date = document.getElementById('lead-date').value;
+
+            const text = `🏛️ *NEW LUXURY SITE VISIT REQUEST*%0A` +
+                         `--------------------------------%0A` +
+                         `• *Name:* ${encodeURIComponent(name)}%0A` +
+                         `• *Phone:* ${encodeURIComponent(phone)}%0A` +
+                         `• *Interested Category:* ${encodeURIComponent(type)}%0A` +
+                         `• *Preferred Visit Date:* ${encodeURIComponent(date)}%0A%0A` +
+                         `Hi Aman Khan! Please connect with me to schedule a private guided tour.`;
+
+            window.open(`https://wa.me/${AMAN_WHATSAPP}?text=${text}`, '_blank');
+            closeLeadModal();
+            showToast("Site visit request submitted via WhatsApp!");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+
+        // MOBILE MENU LOGIC
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // INITIAL RENDER ON WINDOW LOAD
+        window.onload = function() {
+            renderProperties(properties);
+            calculateEMI();
+        };
+    </script>
+</body>
+</html>
